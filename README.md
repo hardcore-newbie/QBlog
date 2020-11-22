@@ -91,8 +91,8 @@ python manage.py createsuperuser
 For example, set username 'admin' and password '123456'.
 
 Then access http://127.0.0.1:8080/admin, type the username and password to login : 
-![2](http://xcontent.oss-cn-hangzhou.aliyuncs.com/CodeRepository/io/img/website/2.png)   
-![3](http://xcontent.oss-cn-hangzhou.aliyuncs.com/CodeRepository/io/img/website/3.png)  
+![2](https://hardcore-newbie-1302831571.cos.ap-nanjing.myqcloud.com/Repository/QBlog/website/2.png)   
+![3](https://hardcore-newbie-1302831571.cos.ap-nanjing.myqcloud.com/Repository/QBlog/website/3.png)  
 
 ## Questions?
 
