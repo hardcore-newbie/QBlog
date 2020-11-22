@@ -1,0 +1,11 @@
+{% extends "blog/home.html" %}
+
+{% block breadcrumb_nav %}
+<div class="scp-breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="{% url 'home' %}"><i>Home</i></a></li>
+        <li><a href="{% url 'tag_overview' %}"><i>Tag</i></a></li>
+        <li class="active"><i>{{ cur_tag.name }}</i></li>
+    </ul>
+</div>
+{% endblock breadcrumb_nav %}

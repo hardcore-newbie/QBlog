@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+
+{% block breadcrumb_nav %}
+<div class="scp-breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="{% url 'home' %}"><i>Home</i></a></li>
+        <li class="active"><i>Wiki</i></li>
+    </ul>
+</div>
+{% endblock breadcrumb_nav %}
+
+{% block main %}
+<div class="row">
+  <div class="col-lg-6">
+   <form role="form" action="/wiki/">
+    <div class="input-group">
+      <input type="text" class="form-control" name="q" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="submit">Go!</button>
+      </span>
+    </div>
+   </form>
+  </div>
+</div>
+<br>
+{% endblock main %}
+
+{% block search %}
+{% endblock search %}
+
+{% block tag %}
+{% endblock tag %}
+
+{% block category %}
+{% endblock category %}

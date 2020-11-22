@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+{% load django_markdown %}
+
+{% block breadcrumb_nav %}
+<div class="scp-breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="{% url 'home' %}"><i>Home</i></a></li>
+        <li class="active"><i>Donates</i></li>
+    </ul>
+</div>
+{% endblock breadcrumb_nav %}
+
+{% block main %}
+  {% for donate in donates %}
+    <p>
+      <img src="{{ donate.image_link }}" class="img-responsive" alt="">
+    </p>
+  {% endfor %}
+  <br><br>
+{% endblock main %}

@@ -1,0 +1,53 @@
+{% extends "blog/base.html" %}
+{% load django_markdown django_markdown_static %}
+{% load replace %}
+
+{% block custom_styles %}
+  <link href="/static/css/django_markdown_preview.css" rel="stylesheet">
+{% endblock %}
+
+{% block breadcrumb_nav %}
+<div class="scp-breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="{% url 'home' %}"><i>Home</i></a></li>
+        <li><a href="{% url 'home' %}"><i>Article</i></a></li>
+        <li class="active"><i>{{ object.slug }}</i></li>
+    </ul>
+</div>
+{% endblock breadcrumb_nav %}
+
+{% block main %}
+  <h2 class="blog-post-title">{{object.title}}</h2>
+    <p class="blog-post-meta">
+      <span class="glyphicon glyphicon-calendar icon"></span>
+      <span class="icon-text">
+        {{ object.create_date | date:"Y/m/d H:i:s" }}
+      </span>
+      <span class="glyphicon glyphicon-user icon"></span>
+      <span class="icon-text">
+        <a href="{% url 'me' %}">
+          <span>{{ object.author }}</span>
+        </a>
+    </p>
+  {% replace search="div class=\"collapse\"" replacement="div class=\"collapse in\"" %}
+    {{ object.text | markdown }}
+  {% endreplace %}
+
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="{{ object.slug }}" data-title="{{ object.title }}" data-url="{{ object.GetAbsoluteURL }}"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"QBlog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+{% endblock %}

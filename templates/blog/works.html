@@ -1,0 +1,38 @@
+{% extends "blog/base.html" %}
+{% load django_markdown %}
+
+{% block custom_styles %}
+    <link href="/static/css/works.css" rel="stylesheet">
+{% endblock %}
+
+{% block breadcrumb_nav %}
+<div class="scp-breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="{% url 'home' %}"><i>Home</i></a></li>
+        <li class="active"><i>Works</i></li>
+    </ul>
+</div>
+{% endblock breadcrumb_nav %}
+
+{% block main %}
+  {% for work in works %}
+    <div class="media works">
+      <div class="media-left">
+        <a href="{{ work.homepage }}" target="_blank">
+          <img class="media-object" src="{{ work.image_link }}" alt="...">
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">
+          <a href="{{ work.homepage }}" target="_blank">{{ work.name }}</a>
+        </h4>
+          {{ work.desc | markdown }}
+        <div class="keytech">
+          {{ work.keytech | markdown }}
+        </div>
+      </div>
+    </div>
+    <hr>
+  {% endfor %}
+  <br><br>
+{% endblock main %}

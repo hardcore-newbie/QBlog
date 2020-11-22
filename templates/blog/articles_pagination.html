@@ -1,0 +1,65 @@
+<nav>
+  <ul class="pagination">
+    {% if page.has_other_pages %}
+    <li>
+      {% if page.number > 2|add:1 %}
+      <a href="?{% if is_query_result %}q={{ query }}&amp;{% endif %}page=1" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+      {% endif %}
+    </li>
+    <li>
+      {% if page.has_previous %}
+      <a href="?{% if is_query_result %}q={{ query }}&amp;{% endif %}page={{ page.previous_page_number }}" aria-label="Previous">
+        <span aria-hidden="true">&lsaquo;</span>
+      </a>
+      {% endif %}
+    </li>
+
+    {% for i in page.paginator.page_range %}
+      <li class="{% if i == page.number %}active{% endif %}">
+      {% if page.number > 2|add:1 %} {# left + 1 #}
+        {% if page.number|add:2|add:-1 < page.paginator.num_pages %}
+          {% if i > page.number|add:-2|add:-1 %} {# left #}
+            {% if i < page.number|add:2|add:1 %} {# right #}
+              <a href="?{% if is_query_result %}q={{query}}&amp;{% endif %}page={{i}}">
+                {{i}}<span class="sr-only">(current)</span>
+              </a>
+            {% endif %}
+          {% endif %}
+        {% else %}
+          {% if i > page.paginator.num_pages|add:-5 %}
+            <a href="?{% if is_query_result %}q={{query}}&amp;{% endif %}page={{i}}">
+              {{i}}<span class="sr-only">(current)</span>
+            </a>
+          {% endif %}
+        {% endif %}
+      {% elif i < 5|add:1 %}
+        <a href="?{% if is_query_result %}q={{ query }}&amp;{% endif %}page={{i}}">
+          {{i}}<span class="sr-only">(current)</span>
+        </a>
+      {% endif %}
+      </li>
+    {% endfor %}
+
+    <li>
+      {% if page.has_next %}
+      <a href="?{% if is_query_result %}q={{ query }}&amp;{% endif %}page={{ page.next_page_number }}" aria-label="Next">
+        <span aria-hidden="true">&rsaquo;</span>
+      </a>
+      {% endif %}
+    </li>
+
+    <li>
+      {% if page.number|add:2|add:-1 < page.paginator.num_pages %}
+      <a href="?{% if is_query_result %}q={{ query }}&amp;{% endif %}page={{ page.paginator.count }}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+      {% endif %}
+    </li>
+    <br><br>
+
+    {% endif %}
+
+  </ul>
+</nav>

@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+
+{% block breadcrumb_nav %}
+{% endblock breadcrumb_nav %}
+
+{% block main %}
+<br>
+<img src="/static/img/500error_128x159.png" class="img-responsive center-block" alt="Responsive image">
+<br><br>
+<p class="text-center">
+    <b>500</b>. That's an error ! The requested URL is <u>{{ req_url }}</u>.
+    <br><br>
+    <a href="{% url 'home' %}"> - Go home - </a>
+</p>
+{% endblock main %}

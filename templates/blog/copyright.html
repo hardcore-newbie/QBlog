@@ -1,0 +1,7 @@
+{% block page_css %}
+  <link href="/static/css/copyright.css" rel="stylesheet">
+{% endblock page_css %}
+
+{% load django_markdown django_markdown_static %}
+
+{{ copyright.text | markdown }}

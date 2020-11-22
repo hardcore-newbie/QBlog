@@ -1,0 +1,9 @@
+{% block page_css %}
+  <link href="/static/css/tag_cloud.css" rel="stylesheet">
+{% endblock page_css %}
+
+{% for tag in tags %}
+  <a href="{{ tag.GetAbsoluteURL }}" title="{{ tag.GetArticleNum }} topic" style="font-size: {{ tag.CalFontSizeOfTag }}px;">{{ tag.name }}</a>
+{% endfor %}
+
+

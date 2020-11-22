@@ -1,0 +1,52 @@
+{% extends "blog/base.html" %}
+
+{% block custom_styles %}
+    <link href="/static/css/archives.css" rel="stylesheet">
+{% endblock %}
+
+{% block breadcrumb_nav %}
+<div class="scp-breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="{% url 'home' %}"><i>Home</i></a></li>
+        <li class="active"><i>Archives</i></li>
+    </ul>
+</div>
+{% endblock breadcrumb_nav %}
+
+{% block main %}
+
+<div class="list-container">
+{% for year, articles in archives.items %}
+<h1><b>{{year}}</b></h1>
+    <ul class="scale-up-hover-list">
+    {% for article in articles %}
+        <li>
+            <div class="date">
+                <p class="month">{{article.create_date|date:"M"}}</p>
+                <p class="day">{{article.create_date|date:"d"}}</p>
+            </div>
+            <div class="item-info-container">
+                <h1>
+                    <a href="{{article.GetAbsoluteURL}}">{{article.title}}</a>
+                </h1>
+                <p class="item-description">
+                    <!--<span class="glyphicon glyphicon-calendar icon"></span>-->
+                    <!--<span class="icon-text">{{article.create_date|date:"H:i:s"}}</span>-->
+                    <span class="glyphicon glyphicon-user icon"></span> 
+                    <span class="icon-text"><a class="tag-hover" href="{% url 'me' %}"><i>{{article.author}}</i></span></a><br>
+                    <span class="glyphicon glyphicon-folder-close icon"></span>
+                    <span class="icon-text"><a class="tag-hover" href="{{article.GetCategory.GetAbsoluteURL}}"><i>{{article.GetCategory}}</i></a></span></br>
+                    <span class="glyphicon glyphicon-tags icon"></span>
+                    <span class="icon-text">
+                      {% for tag in article.GetTags %}<a class="tag-hover" href="{{tag.GetAbsoluteURL}}"><i>{{tag.name}}</i></a>{% if not forloop.last %},{% endif %}{% endfor %}
+                    </span>
+                </p>
+            </div>
+        </li>
+    {% endfor %}
+    </ul>
+{% endfor %}
+</div>
+<br><br>
+
+{% endblock main %}

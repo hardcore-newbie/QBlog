@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+{% load django_markdown %}
+
+{% block breadcrumb_nav %}
+<div class="scp-breadcrumb">
+    <ul class="breadcrumb">
+        <li class="active"><i>Home</i></li>
+    </ul>
+</div>
+{% endblock breadcrumb_nav %}
+
+{% block main %}
+{% for article in articles %}
+    {% include "blog/article_info.html" with article=article myinfo=myinfo%}
+{% endfor %}
+
+{% include "blog/articles_pagination.html" with is_query_result=False page=articles%}
+
+{% endblock main %}

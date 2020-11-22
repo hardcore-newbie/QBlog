@@ -1,0 +1,6 @@
+{% extends "blog/base.html" %}
+{% load django_markdown %}
+
+{% block main %}
+    {{activity.text|markdown}}   
+{% endblock %}

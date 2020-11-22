@@ -1,0 +1,41 @@
+{% extends "blog/base.html" %}
+{% load django_markdown %}
+
+{% block breadcrumb_nav %}
+<div class="scp-breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="{% url 'home' %}"><i>Home</i></a></li>
+        <li class="active"><i>Category</i></li>
+    </ul>
+</div>
+{% endblock breadcrumb_nav %}
+
+{% block main %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>description</th>
+            <th>articles_num</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for item in order_table %}
+        <tr>
+            <td scope="row">
+                {{ forloop.counter }}
+            </td>
+            <td>
+                <a href="{{ item.1.2.GetAbsoluteURL }}">
+                    {{ item.1.2.name }}
+                </a>
+            </td>
+            <td>{{ item.1.2.description }}</td>
+            <td>{{ item.1.2.GetArticleNum }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br><br>
+{% endblock main %}

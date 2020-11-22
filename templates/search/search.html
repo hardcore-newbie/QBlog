@@ -1,0 +1,28 @@
+{% extends "blog/home.html" %}
+
+{% block breadcrumb_nav %}
+<div class="scp-breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'home' %}">Search</a></li>
+        <li class="active">{{ query }}</li>
+    </ul>
+</div>
+{% endblock breadcrumb_nav %}
+
+{% block main %}
+
+{% if query %}
+  {% for result in page.object_list %}
+    {% include "blog/article_info.html" with article=result.object %}
+    {% empty %}<p>No results found !</p>
+  {% endfor %}
+
+  {% include "blog/articles_pagination.html" with is_query_result=True %}
+
+{% else %}
+<p>No search query given !</p>
+{% endif %}
+
+{% endblock main %}
+

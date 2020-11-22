@@ -1,0 +1,51 @@
+{% load django_markdown %}
+
+{% block custom_styles %}
+    <link href="/static/css/django_markdown_preview.css" rel="stylesheet">
+{% endblock %}
+
+{% if article.is_publish %}
+  <div class="blog-post">
+    <h2 class="blog-post-title">
+      <a href="{{ article.GetAbsoluteURL }}">
+        {{ article.title }}
+      </a>
+    </h2>
+    <p class="blog-post-meta">
+      <span class="glyphicon glyphicon-calendar icon"></span>
+      <span class="icon-text">
+        {{ article.create_date | date:"Y/m/d H:i:s" }}
+      </span>
+      <span class="glyphicon glyphicon-user icon"></span>
+      <span class="icon-text">
+        <a href="{% url 'me' %}">
+          <span>{{ myinfo.pen_name }}</span>
+        </a>
+    </p>
+    <p>
+      {{ article.text | markdown | safe | truncatewords_html:article.truncatewords_num }}
+    </p>
+    <p>
+      <div class="readmore">
+        <a href="{{ article.GetAbsoluteURL }}">
+          <span class="glyphicon glyphicon-plus"></span> more
+        </a>
+      </div>
+    </p>
+    <p class="blog-post-meta">
+      <span class="glyphicon glyphicon-folder-open icon"></span>
+      <span class="icon-text"><a class="tag-hover" href="{{article.GetCategory.GetAbsoluteURL}}"><i>{{article.GetCategory}}</i></a></span>
+      <br>
+      <span class="glyphicon glyphicon-tags icon"></span>
+      <span class="icon-text">
+        {% for tag in article.GetTags %}<a class="tag-hover" href="{{tag.GetAbsoluteURL}}"><i>{{tag.name}}</i></a>{% if not forloop.last %},{% endif %}{% endfor %}
+      </span>
+    </p>
+    <hr class="line">
+  </div>
+{% endif %}
+
+
+
+
+

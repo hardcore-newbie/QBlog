@@ -1,0 +1,122 @@
+.list-container {
+  padding: 1em;
+  width: 355px;
+  font-family: 'FontSite Sans', sans-serif;
+  background: white;
+  padding-left: 1px;
+}
+
+.list-container h1 {
+  font-size: 1em;
+}
+
+ul.scale-up-hover-list {
+  padding-left: .1em;
+  width: 95%;
+  list-style-type: none;
+}
+
+.scale-up-hover-list li {
+  margin: 0;
+  padding: .75em;
+  background-color: white;
+  border-top: none;
+  border-right: 0 solid #eee;
+  border-bottom: .05em solid #eee;
+  border-left: .15em solid #ddd;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.scale-up-hover-list li::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.scale-up-hover-list li:hover {
+  border-top: none;
+  border-right: .1em solid #eee;
+  border-bottom: .1em solid #eee;
+  border-left: .2em solid #621e66;
+  -webkit-transform: translate3d(0, 0, 0, );
+  transform: translate3d(0, 0, 0, );
+  -webkit-transform: scale(1.025, 1.025);
+  -moz-transform: scale(1.025, 1.025);
+  -o-transform: scale(1.025, 1.025);
+  -ms-transform: scale(1.025, 1.025);
+  transform: scale(1.025, 1.025);
+}
+
+.scale-up-hover-list li .date {
+  float: left;
+  margin-right: 1em;
+  max-width: 10%;
+  text-align: center;
+}
+
+.scale-up-hover-list li .date .month {
+  display: block;
+  margin: .25em 0 0;
+  color: #621e66;
+  font-size: .9em;
+  line-height: .75em;
+  font-weight: 800;
+}
+
+.scale-up-hover-list li .date .day {
+  display: block;
+  margin: .005em 0;
+  color: #621e66;
+  font-size: 0.8em;
+  font-weight: 200;
+}
+
+.scale-up-hover-list li .item-info-container {
+  float: left;
+  max-width: 82%
+}
+
+.scale-up-hover-list li .item-info-container h1 {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #555;
+  font-size: .9em;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.scale-up-hover-list li .item-info-container p.item-description {
+  display: block;
+  margin: 0;
+  margin-top: .05em;
+  /* width: 75%; */
+  color: #999;
+  font-size: 0.75em;
+}
+
+.scale-up-hover-list li .item-info-container h1:hover {
+  color: #621e66;
+}
+
+.icon {
+    /* padding-left: 4px; */
+    /* color: #248dc1 !important; */
+    font-size: 9px;
+}
+
+.icon-text {
+  /* padding-left: 1px; */
+  font-size: 9px;
+}
+
+.tag-hover {
+  color: inherit;
+}

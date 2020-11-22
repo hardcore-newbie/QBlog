@@ -1,0 +1,58 @@
+{% extends "blog/base.html" %}
+{% load django_markdown %}
+
+{% block breadcrumb_nav %}
+<div class="scp-breadcrumb">
+    <ul class="breadcrumb">
+        <li><a href="{% url 'home' %}"><i>Home</i></a></li>
+        <li class="active"><i>Me</i></li>
+    </ul>
+</div>
+{% endblock breadcrumb_nav %}
+
+{% block main %}
+    <a href="{{ me.avator_hyperlink }}" target="_blank">
+    {% if me.is_show_local_avator %}
+      <img src="media/{{ me.avator_local }}" class="img-responsive" alt="" style="height: 500px;">
+    {% else %}
+      <img src="{{ me.avator_online }}" class="img-responsive" alt="" style="height: 500px;">
+    {% endif %}
+    </a><br>
+    <p>
+      <i>
+        <b>· Name: </b>{{ me.name }}&nbsp;&nbsp;
+          <a href="{% url 'donates' %}">
+            <i class="fa fa-money" aria-hidden="true"></i>
+          </a>
+      </i>
+    </p>
+    {% if me.is_show_idea %}
+        <p><i><b>· Idea: </b>{{ me.idea }}</i></p>
+    {% endif %}
+    {% if me.is_show_email %}
+      <p><b>· <i class="fa fa-envelope" aria-hidden="true"></i></b>
+        <i>
+           {{ me.email }}
+        </i>
+      </p>
+    {% endif %}
+    {% if me.is_show_github %}
+      <p><b>· <i class="fa fa-github" aria-hidden="true"></i></b>
+        <i>
+          <a href="{{ me.github }}" target="_blank">
+           {{ me.github|cut:"https://"|cut:"http://" }}
+          </a>
+        </i>
+      </p>
+    {% endif %}
+    {% if me.is_show_stackoverflow %}
+      <p><b>· <i class="fa fa-stack-overflow" aria-hidden="true"></i></b>
+        <i>
+          <a href="{{ me.stackoverflow }}" target="_blank">
+           {{ me.stackoverflow|cut:"https://"|cut:"http://" }}
+          </a>
+        </i>
+      </p>
+    {% endif %}
+    <br><br>
+{% endblock main %}

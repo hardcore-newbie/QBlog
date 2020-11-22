@@ -1,0 +1,28 @@
+{% extends "blog/wiki.html" %}
+{% load nbsp %}
+
+{% block main %}
+<div class="row">
+  <div class="col-lg-6">
+   <form role="form" action="/wiki/">
+    <div class="input-group">
+      {% if keys %}
+        <input type="text" class="form-control" name="q" value="{% for k in keys %}{{k}}{% if not forloop.last %} {% endif %}{% endfor %}">
+      {% else %}
+        <input type="text" class="form-control" name="q" placeholder="Search for...">
+      {% endif %}
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="submit">Go!</button>
+      </span>
+    </div>
+   </form>
+  </div>
+</div>
+<br>
+
+<hr>
+<p><b>{{ data.title }}</b></p>
+<hr>
+{{ data.text | nbsp | linebreaks }}
+
+{% endblock %}
