@@ -1,9 +1,9 @@
 # QBlog 
 
-[![GitHub watchers](https://img.shields.io/github/watchers/yingcaix/QBlog.svg?style=popout&label=Watch)](https://github.com/yingcaix/QBlog/watchers)
-[![GitHub stars](https://img.shields.io/github/stars/yingcaix/QBlog.svg?style=popout&label=Star)](https://github.com/yingcaix/QBlog/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/yingcaix/QBlog.svg?style=popout&label=Fork)](https://github.com/yingcaix/QBlog/fork)
-[![GitHub issues](https://img.shields.io/github/issues/yingcaix/QBlog.svg?style=popout&label=Issue)](https://github.com/yingcaix/QBlog/issues)  
+[![GitHub watchers](https://img.shields.io/github/watchers/hardcore-newbie/QBlog.svg?style=popout&label=Watch)](https://github.com/hardcore-newbie/QBlog/watchers)
+[![GitHub stars](https://img.shields.io/github/stars/hardcore-newbie/QBlog.svg?style=popout&label=Star)](https://github.com/hardcore-newbie/QBlog/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/hardcore-newbie/QBlog.svg?style=popout&label=Fork)](https://github.com/hardcore-newbie/QBlog/fork)
+[![GitHub issues](https://img.shields.io/github/issues/hardcore-newbie/QBlog.svg?style=popout&label=Issue)](https://github.com/hardcore-newbie/QBlog/issues)  
 
 **QBlog** is a blog base on Python + Django ([http://qblog.yc.cool](http://qblog.yc.cool)).   
 In a few minutes you'll be set up with a minimal, responsive blog like the one below !  
@@ -96,4 +96,4 @@ Then access http://127.0.0.1:8080/admin, type the username and password to login
 
 ## Questions?
 
-[Open an Issue](https://github.com/yingcaix/QBlog/issues/new) and let's chat!  
+[Open an Issue](https://github.com/hardcore-newbie/QBlog/issues/new) and let's chat!  
